@@ -1,0 +1,22 @@
+.image-thumb {
+    width: 100%;
+}
+
+.text-wrapper {
+    display: -webkit-box;
+    max-width: 400px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.block-wrapper {
+    margin-bottom: 35px;
+}
+
+a,
+a:hover {
+    color: #000;
+    text-decoration: none;
+}
