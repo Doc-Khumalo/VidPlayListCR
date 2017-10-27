@@ -2,16 +2,24 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://doc-khumalo.github.io/VidPlayListCR/",
   "dependencies": {
     "axios": "^0.17.0",
+    "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Doc-Khumalo/VidPlayListCR.git"
   }
 }
