@@ -11,7 +11,7 @@ class Videomain extends React.Component {
     }
     
     backClick() {
-        this.props.allVideos(this.state.page)
+        this.props.sendData(this.state.page)
     }
 
     render() {

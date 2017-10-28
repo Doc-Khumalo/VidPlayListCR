@@ -1,36 +1,19 @@
 import React from 'react';
 import axios from 'axios';
-import Videoplaylistfilter from '../VideoPlayListFilter/Videoplaylistfilter';
-import Videomain from '../VideoMain/Videomain';
+import text from "../text";
+import './Videoplaylist.css';
 
 class Videoplaylist extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             videoPlaylist: [],
-            page: 'allVideos',
             video: []
         }
     }
 
-    getData(data) {
-        this.setState({
-            page: data
-        })
-    }
-
     handleClick(data) {
-        this.setState({
-            page: 'mainVideo',
-            video: data,
-            videoPlaylist: data
-        })
-    }
-
-    viewAllVideos(data) {
-        this.setState({
-            page: data
-        })
+        this.props.sendData(data)
     }
 
     componentDidMount() {
@@ -54,15 +37,24 @@ class Videoplaylist extends React.Component {
         const { videoPlaylist, page } = this.state;
 
         return (
-            <div>
-
-                {page === 'allVideos' && (
-                    <Videoplaylistfilter videoPlaylist={videoPlaylist} sendData={e => this.handleClick(e)} />
-                )}
-
-                {page === 'mainVideo' && (
-                    <Videomain video={this.state.video} page={this.state.page} allVideos={e => this.viewAllVideos(e)} />
-                )}
+            <div className="container-fluid">
+                <h2>{text.headerMain}</h2>
+                {videoPlaylist.map((data, i) => {
+                    return (
+                        <div key={i} className="row block-wrapper" onClick={e => this.handleClick(data)}>
+                            <div className="col-sm-6 col-md-6 col-lg-6">
+                                <a href="#" onClick={e => this.handleClick()}>
+                                    <img className="image-thumb" src={data.snippet.thumbnails.medium.url} />
+                                </a>
+                            </div>
+                            <div className="col-md-6 col-md-6 col-lg-6">
+                                <h3><a href="#" onClick={e => this.handleClick()}>{data.snippet.title}</a></h3>
+                                <h5>{text.publishedHeader} {Date(data.snippet.publishedAt)}</h5>
+                                <p className="text-wrapper">{data.snippet.description}</p>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         );
     }

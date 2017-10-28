@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Videoplaylist from './VideoPlayList/Videoplaylist';
+import Videocontainer from './VideoContainer/Videocontainer';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Videoplaylist />, document.getElementById('root'));
+ReactDOM.render(<Videocontainer />, document.getElementById('root'));
 registerServiceWorker();
